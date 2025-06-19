@@ -263,6 +263,79 @@ Explanation:
 findElements → Returns a list of web elements.
 Practical scenario: Used findElements to fetch all elements on a webpage during a case/test.
 
+39 What is the use of testng.xml file?
+
+It allows you to run multiple tests in a single execution.
+You can include/exclude specific test methods or groups.
+Enables parallel test execution setup.
+
+40 How do you create test dependencies?
+
+Use the dependsOnMethods parameter in the @Test annotation to specify which test methods should run first.
+
+41. What is parameterization in TestNG?
+
+In TestNG, parameterization lets a test method run multiple times with different input values (data‑driven testing).
+You can do this via:
+testng.xml
+@DataProvider annotation
+
+42. Write a Selenium program to verify success message after a successful file upload.
+
+// Pass file path via sendKeys
+driver.findElement(By.xpath("//input[@type='file']")).sendKeys("/path/to/SampleImage.png");
+// Click the upload button
+driver.findElement(By.name("uploadfile")).click();
+// Verify success message is displayed
+driver.findElement(By.xpath("//center[text()='file upload successful']")).isDisplayed();
+
+43. Write a Selenium program to drag and drop an item on a website.
+
+// Use Actions class
+Actions action = new Actions(driver);
+WebElement from = driver.findElement(By.id("column‑a"));
+WebElement to   = driver.findElement(By.id("column‑b"));
+action.dragAndDrop(from, to).perform();
+
+44. Write a Selenium program to click on a link and automate the page opened in a new window.
+
+// Click the link
+WebElement link = driver.findElement(By.id("link1"));
+link.click();
+
+// Switch to new window
+String main = driver.getWindowHandle();
+for (String handle : driver.getWindowHandles()) {
+  if (!handle.equals(main)) {
+    driver.switchTo().window(handle);
+    // Perform actions in child window
+    driver.findElement(By.name("emailid")).sendKeys("you@example.com");
+    driver.findElement(By.name("btnLogin")).click();
+    driver.close();
+  }
+}
+driver.switchTo().window(main);
+
+45. Write a Selenium program to select a value from a dropdown.
+java
+Copy
+Edit
+Select dropdown = new Select(driver.findElement(By.name("location")));
+dropdown.selectByVisibleText("India"); // or selectByValue/index
+
+46. Write a Selenium program to get the text of an alert window and click OK.
+
+// Trigger alert
+driver.findElement(By.id("link1")).click();
+String alertText = driver.switchTo().alert().getText();
+System.out.println(alertText);
+driver.switchTo().alert().accept();
+driver.quit();
+
+47. Write a command to verify that your webpage source contains no 404 errors.
+
+Assert.assertEquals(driver.getPageSource().contains("404"), false);
+
 
 
 
