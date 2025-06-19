@@ -1,0 +1,7 @@
+TransactionID,CustomerID,Amount,Status
+1001,101,500,Success
+1002,102,1500,Failed
+1003,103,800,Success
+1004,106,2000,Success
+1005,101,300,Success
+1006,107,100,Failed
