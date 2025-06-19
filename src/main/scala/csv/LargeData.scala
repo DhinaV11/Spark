@@ -17,7 +17,7 @@ object LargeData {
     //.master("local[*]") means it will run on your local machine using all cores.
     val spark = SparkSession.builder()
       .appName("People Data Processor")
-      .master("local[*]") // For local testing; use "yarn" or "cluster" in production
+      .master("local[*]") // For local testing;
       .getOrCreate()
 
     /*val spark =
